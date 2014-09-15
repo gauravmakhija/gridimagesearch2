@@ -11,3 +11,4 @@ Site (espn.com)
 Required: Subsequent searches will have any filters applied to the search results
 Required: User can tap on any image in results to see the image full-screen
 Required: User can scroll down “infinitely” to continue loading more image results (up to 8 pages)
+![GridImageSearch](gridImageSearch.gif)
