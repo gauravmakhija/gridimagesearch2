@@ -32,6 +32,7 @@ public class ChangeSettingsActivity extends Activity {
 		createSize();
 		createColor();
 		createType();
+		((EditText) findViewById(R.id.etSiteFilter)).setText(settings.getSiteFilter());
 	}
 
 	private void createSize() {
@@ -59,18 +60,42 @@ public class ChangeSettingsActivity extends Activity {
 		sizeSpinner = (Spinner) findViewById(R.id.spImageSize);
 		sizeSpinner.setOnItemSelectedListener(new CustomOnSizeSelectedListener());	
 		sizeSpinner.setAdapter(sizeAdapter);
+		int index=0;
+		for(int i=0;i<sizeAdapter.getCount();i++){
+			if (sizeAdapter.getItem(i).equals(settings.getImageSize())) {
+				index=i;
+				break;
+			}
+		}
+		sizeSpinner.setSelection(index);
 	}
 	
 	private void addListenerOnColorSelection() {
 		colorSpinner = (Spinner) findViewById(R.id.spColorFilter);
 		colorSpinner.setOnItemSelectedListener(new CustomOnColorSelectedListener());
 		colorSpinner.setAdapter(colorAdapter);
+		int index=0;
+		for(int i=0;i<colorAdapter.getCount();i++){
+			if (colorAdapter.getItem(i).equals(settings.getColorFilter())) {
+				index=i;
+				break;
+			}
+		}
+		colorSpinner.setSelection(index);
 	}
 	
 	private void addListenerOnTypeSelection() {
 		typeSpinner = (Spinner) findViewById(R.id.spImageType);
 		typeSpinner.setOnItemSelectedListener(new CustomOnTypeSelectedListener());	
 		typeSpinner.setAdapter(typeAdapter);
+		int index=0;
+		for(int i=0;i<typeAdapter.getCount();i++){
+			if (typeAdapter.getItem(i).equals(settings.getImageType())) {
+				index=i;
+				break;
+			}
+		}
+		typeSpinner.setSelection(index);
 	}
 
 	public void onSave(View v){
