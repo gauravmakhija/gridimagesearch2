@@ -122,7 +122,7 @@ public class SearchActivity extends Activity {
 	private String constructUrl(int page, String query) {
 		StringBuilder url = new StringBuilder(BASE_URL);
 		url.append(START);
-		url.append(page);
+		url.append(page*8);
 		url.append(QUERY);
 		url.append(Uri.encode(query));
 		if(settings.getImageSize()!=null)
